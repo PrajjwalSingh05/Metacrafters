@@ -1,0 +1,57 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const total_NftContainer =[]
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT(object_title, object_uniqueCode, object_artist, object_year, object_medium) {
+    const nftObject = {
+        "painting_Title": object_title,
+        "painting_UniqueCode": object_uniqueCode,
+        "Artist_Name": object_artist,
+        "Year_Creation": object_year,
+        "Painted_Medium": object_medium
+}
+total_NftContainer.push(nftObject);
+console.log("NFT Minted: " + object_title);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+    for (let i = 0; i < total_NftContainer.length; i++) {
+        console.log(`\nNFT Number ${i + 1}:`);
+        console.log(`Title: ${total_NftContainer[i].painting_Title}`);
+        console.log(`Unique Code: ${total_NftContainer[i].painting_UniqueCode}`);
+        console.log(`Artist: ${total_NftContainer[i].Artist_Name}`);
+        console.log(`Year: ${total_NftContainer[i].Year_Creation}`);
+        console.log(`Medium: ${total_NftContainer[i].Painted_Medium}`);
+        console.log("**********************************************");
+    }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    console.log("\nTotal Number of  Supply = ",total_NftContainer.length)
+}
+
+// call your functions below this line
+
+mintNFT("Starry Night", "01", "Vincent van Gogh", 1889, "Oil on canvas", );
+mintNFT("Mona Lisa", "02", "Leonardo da Vinci", 1503, "Oil on poplar panel", );
+mintNFT("The Scream", "03", "Edvard Munch", 1893, "Oil, tempera, pastel on cardboard" );
+mintNFT("Girl with a Pearl Earring", "04", "Johannes Vermeer", 1665, "Oil on canvas" );
+
+
+listNFTs();
+getTotalSupply();
